@@ -1,5 +1,5 @@
 {
-    "name": "timechart",
+    "name": "@wintbit/timechart",
     "version": "1.0.1-alpha-wintbit",
     "description": "Forked from https://github.com/huww98/TimeChart",
     "repository": {
@@ -34,7 +34,7 @@
         "test": "tsd && jest",
         "prepare": "npm run build"
     },
-    "author": "huww98 <huww98@outlook.com>",
+    "author": "wintbit <wintbit@outlook.com>",
     "license": "MIT",
     "dependencies": {
         "d3-axis": "^3.0.0",
