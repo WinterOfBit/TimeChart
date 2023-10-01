@@ -34,21 +34,42 @@ export class ChartZoomWheel {
                 zoom: 0,
             }
         };
+        /*
         if (event.ctrlKey || event.metaKey) { // zoom
-            if (event.altKey) {
+            if (event.altKey) { // ctrl + alt + wheel = y zoom
                 transform[DIRECTION.X].zoom = deltaX;
                 transform[DIRECTION.Y].zoom = deltaY;
-            } else {
+            } else { // ctrl + wheel = x zoom
                 transform[DIRECTION.X].zoom = (deltaX + deltaY);
             }
         } else { // translate
-            if (event.altKey) {
+            if (event.altKey) { // alt + wheel = y translate
                 transform[DIRECTION.X].translate = deltaX;
                 transform[DIRECTION.Y].translate = deltaY;
-            } else {
+            } else { // wheel = x translate
                 transform[DIRECTION.X].translate = (deltaX + deltaY);
             }
         }
+
+         */
+        // wheel = x+y zoom
+        if (!(event.ctrlKey || event.metaKey) && !event.altKey && !event.shiftKey) {
+            transform[DIRECTION.X].zoom = (deltaX + deltaY);
+            transform[DIRECTION.Y].zoom = deltaY;
+        }
+
+        // ctrl + wheel = x zoom
+        if (!event.altKey && (event.ctrlKey || event.metaKey) && !event.shiftKey) {
+            transform[DIRECTION.X].zoom = (deltaX + deltaY);
+        }
+
+        // shift + wheel = y zoom
+        if (event.shiftKey && ! (event.ctrlKey || event.metaKey) && ! event.altKey) {
+            transform[DIRECTION.X].zoom = deltaX;
+            transform[DIRECTION.Y].zoom = deltaY;
+        }
+
+
         const boundingRect = this.el.getBoundingClientRect();
         const origin = {
             [DIRECTION.X]: event.clientX - boundingRect.left,

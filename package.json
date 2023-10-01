@@ -1,9 +1,9 @@
 {
     "name": "timechart",
-    "version": "1.0.0-beta.10",
-    "description": "An chart library specialized for large-scale time-series data, built on WebGL.",
+    "version": "1.0.1-alpha-wintbit",
+    "description": "Forked from https://github.com/huww98/TimeChart",
     "repository": {
-        "url": "https://github.com/huww98/TimeChart.git",
+        "url": "https://github.com/WinterOfBit/TimeChart.git",
         "type": "git"
     },
     "main": "dist/timechart.umd.js",
